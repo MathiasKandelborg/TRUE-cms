@@ -1,12 +1,17 @@
 {
   "name": "true-cms",
-  "version": "1.0.0",
+  "version": "0.0.0-development",
   "author": "Mathias Kandelborg",
   "license": "Unlicense",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MathiasKandelborg/true-cms.git"
+  },
   "scripts": {
     "build": "sanity build",
     "dev": "sanity start",
-    "test": "sanity check"
+    "test": "sanity check",
+    "semantic-release": "semantic-release"
   },
   "private": true,
   "config": {
