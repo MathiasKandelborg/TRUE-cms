@@ -3,8 +3,9 @@
  * @format
  */
 // I give up for now, I accidentally deleted my whole studio folder and I want to share the project!
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-nocheck
-/* global __DEV_ */
+/* global __DEV__ */
 
 import {
   defer,
@@ -17,7 +18,7 @@ import { mergeMap } from 'rxjs/operators'
 // eslint-disable-next-line import/no-commonjs
 const { StructureBuilder } = require('@sanity/structure')
 
-let prevStructureError: null = null
+let prevStructureError = null
 if (__DEV__) {
   if (module.hot && module.hot.data) {
     prevStructureError = module.hot.data.prevError
@@ -82,6 +83,7 @@ export function serializeStructure(item, context, resolverArgs = []) {
 
 export function getDefaultStructure() {
   const items = StructureBuilder.documentTypeListItems()
+
   return StructureBuilder.list()
     .id('__root__')
     .title('Content')
@@ -113,6 +115,7 @@ export function loadStructure() {
     prevStructureError = null
   } catch (err) {
     prevStructureError = err
+
     return throwError(err)
   }
 
