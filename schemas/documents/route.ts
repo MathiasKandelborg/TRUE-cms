@@ -14,16 +14,6 @@ export default {
       title: 'Slug'
     },
     {
-      name: 'page',
-      type: 'reference',
-      description: 'Select the page that this route should point to',
-      to: [
-        {
-          type: 'page'
-        }
-      ]
-    },
-    {
       name: 'includeInSitemap',
       type: 'boolean',
       title: 'Include page in sitemap',
@@ -34,6 +24,47 @@ export default {
       type: 'boolean',
       title: 'Disallow in robots.txt',
       description: 'Hide this route for search engines'
+    },
+    {
+      name: 'page',
+      type: 'object',
+      fieldsets: [
+        {
+          title: 'SEO & metadata',
+          name: 'metadata'
+        }
+      ],
+      fields: [
+        {
+          name: 'title',
+          type: 'string',
+          title: 'Title'
+        },
+        {
+          name: 'content',
+          type: 'array',
+          title: 'Page sections',
+          of: [
+            { type: 'hero' },
+            { type: 'imageSection' },
+            { type: 'textSection' }
+          ]
+        },
+        {
+          name: 'description',
+          type: 'text',
+          title: 'Description',
+          description: 'This description populates meta-tags on the webpage',
+          fieldset: 'metadata'
+        },
+        {
+          name: 'openGraphImage',
+          type: 'image',
+          title: 'Open Graph Image',
+          description: 'Image for sharing previews on Facebook, Twitter etc.',
+          fieldset: 'metadata'
+        }
+      ]
     }
   ],
   preview: {
